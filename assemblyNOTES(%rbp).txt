@@ -1,0 +1,13 @@
+  main:
+  var      indexed        value
+  rax  <- [-0xe(%rbp)] -> 3849293615889199671
+
+  rax  <- [-0x42(%rbp)] -> 0x42==66 
+
+  func1:
+  var      indexed        value
+  rdi  <- [-0x18(%rbp)] -> 3849293615889199671
+       <- [-0x8(%rbp)] ->  0 
+       <- [-0x4(%rbp)] ->  0 
+       <- [-0x4(%rbp)] ->  0 
+

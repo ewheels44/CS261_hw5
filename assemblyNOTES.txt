@@ -1,0 +1,33 @@
+main:
+/*****************
+push    %rbp                + 8        Size?? : 18 without ret addy
+mov     %rsp , %rbp                              26 w/ ret addy
+sub     0x10 , %rsp          + 10
+movabs  0x356b702633413237, %rax       rax = 3849293615889199671
+mov     %rax , -0xe(%rbp)              
+mov(w)  $0x42, -0x6(%rbp)               w = 16bits
+lea     -0xe(%rbp), %rax                not sure what this is for(seems redundant) - mayb its to change the size data??
+mov     %rax, %rdi                      so it can be used in func?? (used as a parameter)
+*******************\ - main stack setup
+call    0x61d<func1>
+
+func1:
+/******************
+push    %rbp                + 8       size: 26 without ret addy
+mov     %rsp , %rbp                         34 with 
+sub     $0x18, %rsp         + 18
+mov     %rdi, -0x18(%rbp)             rdi = rax = 3849293615889199671
+mov     $0x0, -0x8(%rbp)
+=======================
+mov     $0x0, -0x4(%rbp)              
+mov     $0x0, -0x4(%rbp)
+======================= - not sure why these are duplicates??
+jmp <func1+73>
+
+<func+73>:
+mov -0x4(%rbp), %eax                  eax = 0
+movslq %eax, %rdx                     rdx = 0
+mov -0x18(%rbp), %rax                 rax = 3849293615889199671
+
+
+
